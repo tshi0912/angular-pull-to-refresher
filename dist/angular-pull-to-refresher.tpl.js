@@ -17,6 +17,8 @@ angular.module('sfe.pullToRefresher').run(['$templateCache', function($templateC
     "    </div>\r" +
     "\n" +
     "</div>\r" +
+    "\n" +
+    "<div ng-transclude class=\"ptr-content\"></div>\r" +
     "\n"
   );
 

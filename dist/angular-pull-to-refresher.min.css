@@ -45,7 +45,7 @@
   -webkit-animation-delay: 0.4s;
   animation-delay: 0.4s;
 }
-.content-view {
+.ptr-content {
   min-height: 100%;
   z-index: 20;
   -webkit-backface-visibility: hidden;
@@ -57,7 +57,6 @@
 }
 .ptr-reset .ptr,
 .ptr-loading .ptr {
-  height: 92px;
   transition: all .25s ease;
 }
 .ptr-reset .ptr .fa,
@@ -67,10 +66,10 @@
 .ptr-reset .loading,
 .ptr-loading .loading {
   display: inline-block;
-  margin-top: 56px;
+  margin-top: 10px;
 }
-.ptr-reset .content-view,
-.ptr-loading .content-view {
+.ptr-reset .ptr-content,
+.ptr-loading .ptr-content {
   transition: all .25s ease;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);

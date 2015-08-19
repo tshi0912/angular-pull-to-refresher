@@ -178,22 +178,21 @@
     'cfg',
     function ($compile, $timeout, $q, cfg) {
       return {
-        scope: true,
+        scope: { refresh: '&' },
         restrict: 'A',
+        transclude: true,
         templateUrl: 'angular-pull-to-refresher.tpl.html',
-        compile: function compile(tElement, tAttrs, transclude) {
-          return function postLink(scope, iElement, iAttrs) {
-            var config = angular.extend({}, cfg, iAttrs);
-            WebPullToRefresh.init({
-              contentEl: iElement.parent(),
-              ptrEl: iElement.children()[0],
-              distanceToRefresh: config.distanceToRefresh,
-              resistance: config.resistance,
-              loadingFunction: function () {
-                return scope.$eval(iAttrs.pullToRefresh);
-              }
-            });
-          };
+        link: function (scope, element, attrs) {
+          var config = angular.extend({}, cfg, attrs);
+          WebPullToRefresh.init({
+            ptrEl: element.children()[0],
+            contentEl: element.children()[1],
+            distanceToRefresh: config.distanceToRefresh,
+            resistance: config.resistance,
+            loadingFunction: function () {
+              return scope.refresh();
+            }
+          });
         }
       };
     }
@@ -202,7 +201,7 @@
   angular.module('sfe.pullToRefresher').run([
     '$templateCache',
     function ($templateCache) {
-      $templateCache.put('angular-pull-to-refresher.tpl.html', '<div class="ptr">\n' + '   <i class="fa fa-arrow-down"></i>\n' + '   <div class="loading">\n' + '       <span class="l1"></span>\n' + '       <span class="l2"></span>\n' + '       <span class="l3"></span>\n' + '   </div>\n' + '</div>\n');
+      $templateCache.put('angular-pull-to-refresher.tpl.html', '<div class="ptr">\r' + '\n' + '    <i class="fa fa-arrow-down"></i>\r' + '\n' + '    <div class="loading">\r' + '\n' + '        <span class="l1"></span>\r' + '\n' + '        <span class="l2"></span>\r' + '\n' + '        <span class="l3"></span>\r' + '\n' + '    </div>\r' + '\n' + '</div>\r' + '\n' + '<div ng-transclude class="ptr-content"></div>\r' + '\n');
     }
   ]);
 }(window, document));

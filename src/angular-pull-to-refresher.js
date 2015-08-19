@@ -220,22 +220,23 @@ angular
     })
     .directive('pullToRefresh', function ($compile, $timeout, $q, cfg) {
         return {
-            scope: true,
+            scope: {
+                refresh: '&'
+            },
             restrict: 'A',
+            transclude: true,
             templateUrl: 'angular-pull-to-refresher.tpl.html',
-            compile: function compile(tElement, tAttrs, transclude) {
-                return function postLink(scope, iElement, iAttrs) {
-                    var config = angular.extend({}, cfg, iAttrs);
-                    WebPullToRefresh.init({
-                        contentEl: iElement.parent(),
-                        ptrEl: iElement.children()[0],
-                        distanceToRefresh: config.distanceToRefresh,
-                        resistance: config.resistance,
-                        loadingFunction: function(){
-                            return scope.$eval(iAttrs.pullToRefresh);
-                        }
-                    });
-                }
+            link: function(scope, element, attrs) {
+                var config = angular.extend({}, cfg, attrs);
+                WebPullToRefresh.init({
+                    ptrEl: element.children()[0],
+                    contentEl: element.children()[1],
+                    distanceToRefresh: config.distanceToRefresh,
+                    resistance: config.resistance,
+                    loadingFunction: function () {
+                        return scope.refresh();
+                    }
+                });
             }
         }
     }
