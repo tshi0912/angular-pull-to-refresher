@@ -1,0 +1,30 @@
+{
+  "name": "angular-pull-to-refresher",
+  "version": "0.1.0",
+  "description": "angular-pull-to-refresher",
+  "keywords": [
+    "angular"
+  ],
+  "homepage": "https://github.com/tshi0912/angular-pull-to-refresher",
+  "bugs": "https://github.com/tshi0912/angular-pull-to-refresher/issues",
+  "author": {
+    "name": "Jim Shi",
+    "email": "tshi0912@gmail.com",
+    "url": "https://shitao.me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tshi0912/angular-pull-to-refresher.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "angular": "~1.3.7",
+    "hammerjs": "~2.0.4",
+    "font-awesome": "4.3.0"
+  }
+}
