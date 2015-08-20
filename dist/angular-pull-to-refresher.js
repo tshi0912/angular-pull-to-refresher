@@ -159,9 +159,9 @@
       var _doReset = function () {
         bodyClass.remove('ptr-loading');
         bodyClass.remove('ptr-refresh');
-        bodyClass.add('ptr-reset');
+        //bodyClass.add('ptr-reset');
         var bodyClassRemove = function () {
-          bodyClass.remove('ptr-reset');
+          //bodyClass.remove('ptr-reset');
           document.body.removeEventListener('transitionend', bodyClassRemove, false);
         };
         document.body.addEventListener('transitionend', bodyClassRemove, false);

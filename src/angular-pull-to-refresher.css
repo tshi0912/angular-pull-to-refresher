@@ -48,6 +48,7 @@
 .ptr-content {
   min-height: 100%;
   z-index: 20;
+  position: relative;
   -webkit-backface-visibility: hidden;
   -webkit-perspective: 1000;
 }
@@ -70,6 +71,7 @@
 }
 .ptr-reset .ptr-content,
 .ptr-loading .ptr-content {
+  top: 42px;
   transition: all .25s ease;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
